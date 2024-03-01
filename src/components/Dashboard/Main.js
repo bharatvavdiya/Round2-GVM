@@ -24,6 +24,9 @@ const Main = () => {
       setFormData([...formData, { name: name, vendors: vendors }])
    }
 
+   const handleSubmit = () => {
+      setFormData([...formData, { name: name, vendors: vendors, varients: varients, is_main: is_main, nameV: nameV, number: number }])
+   }
    const openFormikForm = () => {
       return (
          <Formik
@@ -36,7 +39,7 @@ const Main = () => {
                number: ''
             }}
             onSubmit={(values, { setSubmitting }) => {
-               setFormData([...formData, values])
+               handleSubmit()
             }}
          >
             <Form>
@@ -119,8 +122,20 @@ const Main = () => {
             {openForm ? openFormikForm() : null}
 
             <table>
-               {
-                  formData.map((data, index) => {
+
+
+               <>
+                  <tr>
+                     <th>Name</th>
+                     <th>Vendors</th>
+                     <th>Varient</th>
+                     <th>Is Main</th>
+                     <th>NameV</th>
+                     <th>Number</th>
+                     <th>Edit</th>
+                     <th>Delete</th>
+                  </tr>
+                  {formData.map((data, index) => {
                      return (
                         <tr key={index}>
                            <td>{data.name}</td>
@@ -134,7 +149,9 @@ const Main = () => {
                         </tr>
                      )
                   })
-               }
+                  }
+               </>
+
             </table>
 
          </div>
