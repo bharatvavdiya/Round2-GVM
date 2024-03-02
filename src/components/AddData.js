@@ -83,7 +83,15 @@ function AddData() {
                                                    <ErrorMessage name={`vendors[${vendorIndex}].variations[${variationIndex}].number`} component="div" className='text-danger' />
                                                 </div>
                                              ))}
-                                             <button type="button" className='mt-3' onClick={() => pushVariation({ name: '', number: '' })}>
+                                             <button type="button" className='mt-3' onClick={() => {
+                                                // if variation is empty then don't add new variation and show error  message
+                                                if (variationForm.values.vendors[vendorIndex].variations.filter(variation => variation.name === '' || variation.number === '').length > 0) {
+                                                   alert('Please fill variation name and number')
+                                                } else {
+                                                   pushVariation({ name: '', number: '' })
+                                                   variationForm.setFieldValue(`vendors[${vendorIndex}].main`, "false")
+                                                }
+                                             }}>
                                                 Add Variation
                                              </button>
                                           </div>
@@ -93,7 +101,16 @@ function AddData() {
                               ))}
                            </div>
                            <div className='mt-3'>
-                              <button type="button" onClick={() => push({ name: '', main: false, variations: [{ name: '', number: '' }] })}>
+                              <button type="button" onClick={() =>
+                              // if vendor is empty then don't add new vendor and show error  message also check if minimum 1 variation with variation name and number is added
+                              {
+                                 if (form.values.vendors.filter(vendor => vendor.name === '' || vendor.variations.filter(variation => variation.name === '' || variation.number === '').length > 0).length > 0) {
+                                    alert('Please fill vendor name and variation name and number')
+                                 } else {
+                                    push({ name: '', main: "false", variations: [{ name: '', number: '' }] })
+                                 }
+                              }
+                              }>
                                  Add Vendor
                               </button>
                            </div>
