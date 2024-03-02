@@ -68,7 +68,7 @@ function AddData() {
                               {form.values.vendors.map((vendor, vendorIndex) => (
                                  <div key={vendorIndex} className='mt-3'>
                                     <Field name={`vendors[${vendorIndex}].name`} placeholder="Vendor Name" className="me-3" />
-                                    {/* <ErrorMessage name={`vendors[${vendorIndex}].name`} component="div" className='text-danger' /> */}
+                                    <ErrorMessage name={`vendors[${vendorIndex}].name`} component="div" className='text-danger' />
 
                                     <Field name={`vendors[${vendorIndex}].main`} type="radio" value="true" className="me-1" /><label>Main</label>
 
@@ -78,7 +78,9 @@ function AddData() {
                                              {vendor.variations.map((variation, variationIndex) => (
                                                 <div key={variationIndex} className='mt-2'>
                                                    <Field className="me-3" name={`vendors[${vendorIndex}].variations[${variationIndex}].name`} placeholder="verient" />
+                                                   <ErrorMessage name={`vendors[${vendorIndex}].variations[${variationIndex}].name`} component="div" className='text-danger' />
                                                    <Field type="number" name={`vendors[${vendorIndex}].variations[${variationIndex}].number`} placeholder="verient Number" />
+                                                   <ErrorMessage name={`vendors[${vendorIndex}].variations[${variationIndex}].number`} component="div" className='text-danger' />
                                                 </div>
                                              ))}
                                              <button type="button" className='mt-3' onClick={() => pushVariation({ name: '', number: '' })}>
