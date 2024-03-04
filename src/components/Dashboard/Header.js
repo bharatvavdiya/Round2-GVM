@@ -22,26 +22,10 @@ export default function Header() {
 		<div className='d-flex flex-wrap align-items-center w-100'>
 			<div className='d-flex flex-wrap align-items-center ms-auto'>
 				<div>
-					{/* <Dropdown className='dashNotiDropdown'>
-						<Dropdown.Toggle variant='normal' id='dropdown-basic' className='py-0'>
-							<div className='dashNotiIcon'><i className='las la-bell'></i></div>
-						</Dropdown.Toggle>
-					</Dropdown> */}
 				</div>
 
 				<div>
-					Hi,admin
-					{/* <Dropdown className='dashUserDropdown'>
-						<Dropdown.Toggle variant='normal' id='dropdown-basic' className='py-0 pe-1'>
-							<span className='dashUserIcon me-2'>
-								<img src={UserIcon} alt='Admin' crossOrigin="anonymous" />
-							</span>
-						</Dropdown.Toggle>
-
-						<Dropdown.Menu className='p-0'>
-							<Link onClick={handleLogout} className='dropdown-item py-2 px-3'><span><i className='las la-sign-out-alt'></i></span>Logout</Link>
-						</Dropdown.Menu>
-					</Dropdown> */}
+					<button className='border border-0 bg-transparent text-white' onClick={() => alert("You have been Signout")}>Signout</button>
 				</div>
 			</div>
 		</div>
